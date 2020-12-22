@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t cw729/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run cw729/docker-react npm run test -- --coverage
